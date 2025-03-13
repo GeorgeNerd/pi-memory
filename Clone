@@ -1,4 +1,5 @@
 git clone https://github.com/GeorgeNard/pi-memory.git
 cd pi-memory-game
-
-
+git add index.html
+git commit -m "Add Pi Memory Game"
+git push origin main
