@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Memory Game</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        #message {
+            margin-bottom: 20px;
+        }
+        #input {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pi Memory Game</h1>
+    <div id="message"></div>
+    <input type="text" id="input" placeholder="Enter digits" />
+    <button onclick="checkInput()">Submit</button>
+
+    <script>
+        const pi = "3.14159265358979323846264338327950288419716939937510";
+        let currentLevel = 1;
+
+        function showDigits() {
+            const message = document.getElementById('message');
+            message.textContent = `Remember these digits: ${pi.slice(0, currentLevel + 1)}`;
+        }
+
+        function checkInput() {
+            const input = document.getElementById('input').value;
+            if (input === pi.slice(0, currentLevel + 1)) {
+                currentLevel++;
+                if (currentLevel > pi.length) {
+                    alert('Congratulations! You have remembered all the digits of Pi!');
+                } else {
+                    alert('Correct! Get ready for the next level.');
+                    showDigits();
+                }
+            } else {
+                alert('Incorrect! Try again.');
+            }
+            document.getElementById('input').value = '';
+        }
+
+        // Start the game by showing the first digit
+        showDigits();
+    </script>
+</body>
+</html>
