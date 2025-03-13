@@ -30,10 +30,16 @@
     <script>
         const pi = "3.14159265358979323846264338327950288419716939937510";
         let currentLevel = 1;
+        const displayTime = 3000; // Time in milliseconds to display the digits
 
         function showDigits() {
             const message = document.getElementById('message');
             message.textContent = `Remember these digits: ${pi.slice(0, currentLevel + 1)}`;
+
+            // Hide the digits after the specified display time
+            setTimeout(() => {
+                message.textContent = 'Enter the digits:';
+            }, displayTime);
         }
 
         function checkInput() {
